@@ -1,21 +1,25 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Form, Segment } from 'semantic-ui-react';
+import { useStore } from '../../../app/stores/store';
+import { observer } from 'mobx-react-lite';
 import { Activity } from '../../../app/models/Activity';
+import { v4 as uuid } from 'uuid';
+import LoadingComponent from '../../../app/layout/LoadingComponent';
 
-interface Props {
-  activity: Activity | undefined;
-  closeForm: () => void;
-  createOrEdit: (activity: Activity) => void;
-  submitting: boolean;
-}
+export default observer(function ActivityForm() {
+  const { activityStore } = useStore();
+  const {
+    loadActivity,
+    createActivity,
+    updateActivity,
+    loading,
+    loadingInitial,
+  } = activityStore;
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-export default function ActivityForm({
-  activity: selectedActivity,
-  closeForm,
-  createOrEdit,
-  submitting,
-}: Props) {
-  const initialState = selectedActivity ?? {
+  const [activity, setActivity] = useState<Activity>({
     id: '',
     title: '',
     date: '',
@@ -23,12 +27,23 @@ export default function ActivityForm({
     category: '',
     city: '',
     venue: '',
-  };
+  });
 
-  const [activity, setActivity] = useState(initialState);
+  useEffect(() => {
+    if (id) loadActivity(id).then((act) => setActivity(act!));
+  }, [id, loadActivity]);
 
   function handleSubmit() {
-    createOrEdit(activity);
+    if (!activity.id) {
+      activity.id = uuid();
+      createActivity(activity).then(() =>
+        navigate(`/activities/${activity.id}`)
+      );
+    } else {
+      updateActivity(activity).then(() =>
+        navigate(`/activities/${activity.id}`)
+      );
+    }
   }
 
   function handleInputChange(
@@ -37,6 +52,8 @@ export default function ActivityForm({
     const { name, value } = event.target;
     setActivity({ ...activity, [name]: value });
   }
+
+  if (loadingInitial) return <LoadingComponent content='Loading activity...' />;
 
   return (
     <Segment clearing>
@@ -78,15 +95,21 @@ export default function ActivityForm({
           value={activity.venue}
           onChange={handleInputChange}
         />
-        <Button floated='right' positive type='submit' content='Submit' />
         <Button
+          floated='right'
+          positive
+          type='submit'
+          content='Submit'
+          loading={loading}
+        />
+        <Button
+          as={Link}
+          to='/activities'
           floated='right'
           type='button'
           content='Cancel'
-          onClick={closeForm}
-          loading={submitting}
         />
       </Form>
     </Segment>
   );
-}
+});
