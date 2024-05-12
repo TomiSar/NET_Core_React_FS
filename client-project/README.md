@@ -1,3 +1,33 @@
+# Complete guide to building an app with .Net Core and React
+
+## Client Create new application
+
+- npx create vite@latest
+
+## install dependencies client-project
+
+- npm i axios
+- npm i semantic-ui-react@3.0.0-beta.2 semantic-ui-css
+- npm i uuid
+- npm i --save-dev @types/uuid
+- npm i --save mobx
+- npm i react-router-dom
+- npm i react-calendar
+- npm i @types/react-calendar
+- npm i react-toastify
+
+## Run client-project
+
+- npm run dev
+
+## Documents
+
+- https://react.semantic-ui.com/usage
+- https://transform.tools/json-to-typescript
+- https://mobx.js.org/README.html
+- https://reactrouter.com/en/main
+- https://docs.fluentvalidation.net/en/latest/aspnet.html
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -22,7 +52,7 @@ export default {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
