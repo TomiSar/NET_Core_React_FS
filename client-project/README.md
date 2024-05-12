@@ -15,10 +15,15 @@
 - npm i react-calendar
 - npm i @types/react-calendar
 - npm i react-toastify
+- npm i formik
+- npm i @types/yup --save-dev
+- npm i react-datepicker
+- npm i @types/react-datepicker --save-dev
+- npm i date-fns@3.6.0
 
 ## Run client-project
 
-- npm run dev
+- npm start
 
 ## Documents
 
@@ -27,6 +32,7 @@
 - https://mobx.js.org/README.html
 - https://reactrouter.com/en/main
 - https://docs.fluentvalidation.net/en/latest/aspnet.html
+- https://formik.org/docs/overview
 
 # React + TypeScript + Vite
 
