@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { Grid } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
@@ -9,10 +8,10 @@ import ActivityFilters from './ActivityFilters';
 
 export default observer(function ActivityDashboard() {
   const { activityStore } = useStore();
-  const { loadActivities, activityRegistry } = activityStore;
+  const { loadActivities } = activityStore;
 
   useEffect(() => {
-    if (activityRegistry.size <= 1) loadActivities();
+    loadActivities();
   }, [loadActivities]);
 
   if (activityStore.loadingInitial)
