@@ -17,6 +17,7 @@
 
 ## Database migration (create Database) in API
 - dotnet ef migrations add InitialCreate -s API -p Persistence
+- dotnet ef migrations add IdentityAdded -p Persistence -s API
 
 ## Database migration (drop Database) in Reactivities
 - dotnet ef database drop -s API -p Persistence
