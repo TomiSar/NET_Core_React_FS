@@ -5,7 +5,7 @@
 - dotnet tool update --global dotnet-ef --version 8.0.4
 - https://www.nuget.org/packages/dotnet-ef
 
-## Run back-end project (folder API)
+## Run back-end project (folder API) Pa$$w0rd
 - dotnet run
 - dotnet watch
 - dotnet watch --no-hot-reload

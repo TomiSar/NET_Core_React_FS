@@ -10,7 +10,9 @@ export default function ValidationErrors({ errors }: Props) {
       {errors && (
         <Message.List style={{ color: '#cc0000' }}>
           {errors.map((err: string, i) => (
-            <Message.Item key={i}>{err}</Message.Item>
+            <>
+              <Message.Item key={i}>{err}</Message.Item>
+            </>
           ))}
         </Message.List>
       )}
