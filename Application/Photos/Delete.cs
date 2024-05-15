@@ -20,9 +20,9 @@ namespace Application.Photos
             private readonly IPhotoAccessor _photoAccessor;
             public Handler(DataContext context, IUserAccessor userAccessor, IPhotoAccessor photoAccessor)
             {
-                _context = context;
-                _userAccessor = userAccessor;
                 _photoAccessor = photoAccessor;
+                _userAccessor = userAccessor;
+                _context = context;
             }
 
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
@@ -34,11 +34,11 @@ namespace Application.Photos
 
                 if (photo == null) return null;
 
-                if (photo.IsMain) return Result<Unit>.Failure("You can't delete your main photo");
+                if (photo.IsMain) return Result<Unit>.Failure("You cannot delete your main photo");
 
                 var result = await _photoAccessor.DeletePhoto(photo.Id);
 
-                if (result == null) return Result<Unit>.Failure("Problem deleting photo from Cloudinary");
+                if (result == null) return Result<Unit>.Failure("Problem deleting photo");
 
                 user.Photos.Remove(photo);
 
@@ -46,7 +46,7 @@ namespace Application.Photos
 
                 if (success) return Result<Unit>.Success(Unit.Value);
 
-                return Result<Unit>.Failure("Problem deleting photo from API");
+                return Result<Unit>.Failure("Problem deleting photo");
             }
         }
     }

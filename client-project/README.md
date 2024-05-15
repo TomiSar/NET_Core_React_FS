@@ -20,6 +20,8 @@
 - npm i react-datepicker
 - npm i @types/react-datepicker --save-dev
 - npm i date-fns@3.6.0
+- npm i --save react-dropzone
+- npm i --save react-cropper
 
 ## Run client-project
 
@@ -33,6 +35,8 @@
 - https://reactrouter.com/en/main
 - https://docs.fluentvalidation.net/en/latest/aspnet.html
 - https://formik.org/docs/overview
+- https://github.com/react-dropzone/react-dropzone
+- https://github.com/react-cropper/react-cropper
 
 # React + TypeScript + Vite
 
