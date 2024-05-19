@@ -22,6 +22,7 @@
 - dotnet ef migrations remove -p Persistence -s API
 - dotnet ef migrations add AddCancelledProperty -p Persistence -s API
 - dotnet ef migrations add PhotoEntityAdded -p Persistence -s API
+- dotnet ef migrations add CommentEntityAdded -p Persistence -s API
 
 ## Database migration (drop Database) in Reactivities
 - dotnet ef database drop -s API -p Persistence
@@ -38,6 +39,7 @@
 
 - https://docs.fluentvalidation.net/en/latest/aspnet.html
 - https://cloudinary.com/documentation/dotnet_integration
+- https://dotnet.microsoft.com/en-us/apps/aspnet/signalr
 
 ## API endpoints (Activities)
 - http://localhost:5000/api/activities/:activityId 	(GET Activity byId)

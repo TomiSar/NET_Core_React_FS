@@ -22,6 +22,7 @@
 - npm i date-fns@3.6.0
 - npm i --save react-dropzone
 - npm i --save react-cropper
+- npm i @microsoft/signalr
 
 ## Run client-project
 
