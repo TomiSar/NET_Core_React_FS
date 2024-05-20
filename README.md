@@ -23,6 +23,7 @@
 - dotnet ef migrations add AddCancelledProperty -p Persistence -s API
 - dotnet ef migrations add PhotoEntityAdded -p Persistence -s API
 - dotnet ef migrations add CommentEntityAdded -p Persistence -s API
+- dotnet ef migrations add FollowingEntityAdded -p Persistence -s API
 
 ## Database migration (drop Database) in Reactivities
 - dotnet ef database drop -s API -p Persistence
