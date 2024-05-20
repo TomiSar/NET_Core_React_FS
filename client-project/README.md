@@ -23,6 +23,8 @@
 - npm i --save react-dropzone
 - npm i --save react-cropper
 - npm i @microsoft/signalr
+- npm i react-infinite-scroller
+- npm i @types/react-infinite-scroller
 
 ## Run client-project
 
